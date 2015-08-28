@@ -78,12 +78,12 @@ LocalSource.prototype = {
                     cache: jsongEnv.jsonGraph,
                     errorSelector: errorSelector});
                 jsongEnv = onSet(self, tempModel, jsongEnv);
-
                 tempModel._getPathValuesAsValues(
                     tempModel,
                     jsongEnv.paths,
                     function onNext(pathValue) {
-                        self.model._setPathValuesAsJSONG(self.model, [pathValue], seed);
+                        self.model._setPathValuesAsJSONG(self.model, [pathValue], null, errorSelector);
+                        self.model._getPathValuesAsJSONG(self.model, [pathValue.path], seed, errorSelector);
                     });
 
                 // always output all the paths

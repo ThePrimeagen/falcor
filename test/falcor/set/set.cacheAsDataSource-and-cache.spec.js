@@ -117,7 +117,7 @@ describe('Cache as DataSource and Cache', function() {
                     }
                     count++;
                 }, noOp, function() {
-                    testRunner.compare(4, count, 'Expected count to be called 4 times');
+                    testRunner.compare(2, count, 'Expected count to be called 2 times');
                 }).
                 subscribe(noOp, done, done);
         });
@@ -145,7 +145,7 @@ describe('Cache as DataSource and Cache', function() {
                     }
                     count++;
                 }, noOp, function() {
-                    testRunner.compare(4, count, 'Expected count to be called 4 times');
+                    testRunner.compare(2, count, 'Expected count to be called 2 times');
                 }).
                 subscribe(noOp, done, done);
         });

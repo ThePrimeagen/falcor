@@ -123,7 +123,6 @@ describe('DataSource Only', function() {
         var model = new Model({
             source: new ErrorDataSource(500, 'Oops!')
         });
-        debugger
         model.
             get(['videos', 1234, 'summary']).
             doAction(noOp, function(err) {

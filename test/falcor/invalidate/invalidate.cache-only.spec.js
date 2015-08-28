@@ -30,8 +30,7 @@ describe("Cache Only", function() {
         var model = new Model({
             cache: Cache()
         });
-        model.
-            invalidate(["videos", 3355, "summary"]);
+        model.invalidate(["videos", 3355, "summary"]);
         model.withoutDataSource().
             get(["videos", 3355, "summary"]).
             doAction(function(x) {

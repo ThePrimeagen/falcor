@@ -19,7 +19,6 @@ xdescribe('GetValueSync', function() {
     it('should get a value.', function() {
         var model = new Model({cache: Cache()});
         model._root.unsafeMode = true;
-        debugger
         var value = model._getValueSync(['videos', 1234, 'summary']);
         testRunner.compare(Values().direct.AsJSON.values[0].json, value);
     });
