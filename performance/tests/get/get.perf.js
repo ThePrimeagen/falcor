@@ -32,7 +32,7 @@ function primedCache() {
 
 function primedCacheWithPaths() {
     model.
-        getPaths(rows).
+        _getWithPaths(rows).
         subscribe(noOp, noOp, noOp);
 }
 
