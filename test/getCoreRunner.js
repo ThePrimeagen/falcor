@@ -64,7 +64,7 @@ function run(test) {
             model = model._materialize();
         }
 
-        var seed = [{}];
+        var seed = {};
         var out;
 
         if (test.input) {
@@ -78,12 +78,12 @@ function run(test) {
         }
 
         if (isJSONG || test.boxValues) {
-            clean(seed[0], {strip: ["$size"]});
+            clean(seed, {strip: ["$size"]});
             clean(expectedOutput, {strip: ["$size"]});
         }
 
         if (expectedOutput) {
-            expect(seed[0]).to.deep.equals(expectedOutput);
+            expect(seed).to.deep.equals(expectedOutput);
         }
         if (requestedMissingPaths) {
             expect(out.requestedMissingPaths).to.deep.equals(requestedMissingPaths);

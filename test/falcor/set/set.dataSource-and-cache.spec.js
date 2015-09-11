@@ -28,7 +28,7 @@ describe('DataSource and Cache', function() {
                             }
                         }
                     }
-                }
+                };
             }
         },
         model = new falcor.Model({

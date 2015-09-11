@@ -38,7 +38,7 @@ describe("Call", function() {
             ._clone({ _path: ["lists"] })
             .call(["add"], [], [], [[0, "summary"]])
             .subscribe(noOp, noOp, noOp);
-    })
+    });
 
     it("executes a local function with the call args", function(done) {
 

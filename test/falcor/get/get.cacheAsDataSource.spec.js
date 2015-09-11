@@ -55,13 +55,13 @@ describe('Cache as DataSource', function() {
         model.
             get(['videos', 1234, 'summary']).
             doAction(noOp, function(err) {
-                testRunner.compare([{
+                expect(err).to.deep.equals([{
                     path: ['videos', 1234, 'summary'],
                     value: {
                         message: 'Oops!',
                         status: 500
                     }
-                }], err);
+                }]);
             }).
             subscribe(noOp, function(err) {
                 // ensure its the same error
