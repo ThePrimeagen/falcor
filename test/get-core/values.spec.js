@@ -76,7 +76,7 @@ describe('Values', function() {
             cache: cacheGenerator(0, 30)
         });
     });
-    it.only('should allow for multiple arguments with different length paths.', function() {
+    it('should allow for multiple arguments with different length paths.', function() {
         getCoreRunner({
             input: [
                 ['lolomo', 0, 'length'],
@@ -137,7 +137,7 @@ describe('Values', function() {
     it('should have no output for empty paths.', function() {
         getCoreRunner({
             input: [['lolomo', 0, [], 'item', 'title']],
-            output: {},
+            output: {json: {}},
             cache: cacheGenerator(0, 1)
         });
     });

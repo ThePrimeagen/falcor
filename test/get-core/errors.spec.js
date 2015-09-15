@@ -28,7 +28,7 @@ describe('Errors', function() {
     it('should report error with path.', function() {
         getCoreRunner({
             input: [['to', 'error']],
-            output: { },
+            output: {json: {}},
             errors: [{
                 path: ['to', 'error'],
                 value: 'Oops!'
@@ -39,7 +39,7 @@ describe('Errors', function() {
     it('should report error path with null from reference.', function() {
         getCoreRunner({
             input: [['reference', 'title']],
-            output: { },
+            output: {json: {}},
             errors: [{
                 path: ['reference', null],
                 value: 'Oops!'
@@ -79,7 +79,7 @@ describe('Errors', function() {
     it('should not report an expired error.', function() {
         getCoreRunner({
             input: [['to', 'expired']],
-            output: { },
+            output: {json: {}},
             optimizedMissingPaths: [
                 ['to', 'expired']
             ],
