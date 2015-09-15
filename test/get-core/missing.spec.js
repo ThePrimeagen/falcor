@@ -15,13 +15,21 @@ describe('Missing', function() {
                 1: {
                     0: ref(['toMissing1'])
                 }
+            },
+            values: {
+                0: ref('v0'),
+                1: ref('v1'),
+                2: ref('v2')
+            },
+            v1: {
+                title: 'Video 0'
             }
         };
     };
     it('should report a missing path.', function() {
         getCoreRunner({
             input: [['missing', 'title']],
-            output: { },
+            output: { json: {} },
             requestedMissingPaths: [['missing', 'title']],
             optimizedMissingPaths: [['toMissing', 'title']],
             cache: missingCache
@@ -30,7 +38,7 @@ describe('Missing', function() {
     it('should report a missing path.', function() {
         getCoreRunner({
             input: [['multi', {to: 1}, 0, 'title']],
-            output: { },
+            output: { json: {} },
             requestedMissingPaths: [
                 ['multi', 0, 0, 'title'],
                 ['multi', 1, 0, 'title']
@@ -57,7 +65,7 @@ describe('Missing', function() {
     it('should report missing paths through many complex keys.', function() {
         getCoreRunner({
             input: [[{to:1}, {to:1}, {to:1}, 'summary']],
-            output: { },
+            output: { json: {} },
             optimizedMissingPaths: [
                 [0, 0, 0, 'summary'],
                 [0, 0, 1, 'summary'],
@@ -95,5 +103,28 @@ describe('Missing', function() {
         });
     });
 
+    it.only('should get both values and the missing values and clean up the output as it created it.', function() {
+        getCoreRunner({
+            input: [['values', {to:2}, 'title']],
+            output: {
+                json: {
+                    values: {
+                        1: {
+                            title: 'Video 0'
+                        }
+                    }
+                }
+            },
+            requestedMissingPaths: [
+                ['values', 0, 'title'],
+                ['values', 2, 'title']
+            ],
+            optimizedMissingPaths: [
+                ['v0', 0, 'title'],
+                ['v2', 2, 'title']
+            ],
+            cache: missingCache
+        });
+    });
 });
 

@@ -142,6 +142,26 @@ describe('Values', function() {
         });
     });
 
+    it('should get a value through a reference.', function() {
+        getCoreRunner({
+            input: [['lolomo', 0, {to: 3}, 'item', 'title']],
+            output: {
+                json: {
+                    lolomo: {
+                        0: {
+                            0: {
+                                item: {
+                                    title: 'Video 0'
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            cache: cacheGenerator(0, 1)
+        });
+    });
+
     // JSONGraph ----------------------------------------
     it('should get JSONGraph for a single value out', function() {
         getCoreRunner({
