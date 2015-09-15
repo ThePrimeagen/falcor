@@ -76,7 +76,7 @@ describe('Values', function() {
             cache: cacheGenerator(0, 30)
         });
     });
-    it('should allow for multiple arguments with different length paths.', function() {
+    it.only('should allow for multiple arguments with different length paths.', function() {
         getCoreRunner({
             input: [
                 ['lolomo', 0, 'length'],

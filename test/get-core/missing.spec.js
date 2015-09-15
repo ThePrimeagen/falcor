@@ -103,7 +103,7 @@ describe('Missing', function() {
         });
     });
 
-    it.only('should get both values and the missing values and clean up the output as it created it.', function() {
+    it('should get both values and the missing values and clean up the output as it created it.', function() {
         getCoreRunner({
             input: [['values', {to:2}, 'title']],
             output: {
@@ -120,8 +120,8 @@ describe('Missing', function() {
                 ['values', 2, 'title']
             ],
             optimizedMissingPaths: [
-                ['v0', 0, 'title'],
-                ['v2', 2, 'title']
+                ['v0', 'title'],
+                ['v2', 'title']
             ],
             cache: missingCache
         });
