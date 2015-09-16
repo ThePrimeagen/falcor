@@ -7,13 +7,11 @@ module.exports = {
 };
 
 function clean(item, options) {
-    traverseAndConvert(item);
-    strip(item, __key);
-
     options = options || { strip: ['$size'] };
-    options.strip.forEach(function(s) {
-        strip(item, s);
-    });
+
+    strip.apply(null, [item, __key].concat(options.strip));
+    traverseAndConvert(item);
+
     return item;
 }
 

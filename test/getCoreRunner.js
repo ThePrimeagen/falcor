@@ -2,6 +2,10 @@ var get = require('./../lib/get');
 var Model = require('./../lib');
 var expect = require('chai').expect;
 var clean = require('./cleanData').clean;
+var __parent = require('./../lib/internal/parent');
+var __key = require('./../lib/internal/key');
+var __path = require('./../lib/internal/path');
+var __version = require('./../lib/internal/version');
 
 module.exports = function(testConfig) {
     var isJSONG = testConfig.isJSONG;
@@ -60,10 +64,14 @@ module.exports = function(testConfig) {
         });
     }
 
-    if (isJSONG || testConfig.boxValues) {
-        clean(seed, {strip: ["$size"]});
-        clean(expectedOutput, {strip: ["$size"]});
-    }
+    // $size is stripped out of basic core tests.
+    clean(seed, {
+        strip: ["$size", __parent, __path, __key, __version]
+    });
+
+    clean(expectedOutput, {
+        strip: ["$size"]
+    });
 
     if (expectedOutput) {
         expect(seed).to.deep.equals(expectedOutput);
