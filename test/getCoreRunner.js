@@ -2,10 +2,6 @@ var get = require('./../lib/get');
 var Model = require('./../lib');
 var expect = require('chai').expect;
 var clean = require('./cleanData').clean;
-var __parent = require('./../lib/internal/parent');
-var __key = require('./../lib/internal/key');
-var __path = require('./../lib/internal/path');
-var __version = require('./../lib/internal/version');
 
 module.exports = function(testConfig) {
     var isJSONG = testConfig.isJSONG;
@@ -51,7 +47,7 @@ module.exports = function(testConfig) {
         model = model._materialize();
     }
 
-    var seed = {};
+    var seed = [{}];
     var out;
 
     if (testConfig.input) {
@@ -65,16 +61,11 @@ module.exports = function(testConfig) {
     }
 
     // $size is stripped out of basic core tests.
-    clean(seed, {
-        strip: ["$size", __parent, __path, __key, __version]
-    });
-
-    clean(expectedOutput, {
-        strip: ["$size"]
-    });
+    clean(seed[0]);
+    clean(expectedOutput);
 
     if (expectedOutput) {
-        expect(seed).to.deep.equals(expectedOutput);
+        expect(seed[0]).to.deep.equals(expectedOutput);
     }
     if (requestedMissingPaths) {
         expect(out.requestedMissingPaths).to.deep.equals(requestedMissingPaths);

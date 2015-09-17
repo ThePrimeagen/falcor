@@ -6,9 +6,8 @@ var LocalDataSource = require('../../data/LocalDataSource');
 var Observable = Rx.Observable;
 var sinon = require('sinon');
 var expect = require('chai').expect;
-var clean = require('./../../cleanData').clean;
 var cacheGenerator = require('./../../CacheGenerator');
-
+var clean = require('./../../cleanData').stripDerefAndVersionKeys;
 var M = function() {
     return cacheGenerator(0, 1);
 };
@@ -16,7 +15,7 @@ var Cache = function() {
     return cacheGenerator(0, 40);
 };
 
-describe('DataSource and Partial Cache', function() {
+describe.only('DataSource and Partial Cache', function() {
     describe('Preload Functions', function() {
         it('should get multiple arguments with multiple selector function args.', function(done) {
             var model = new Model({cache: M(), source: new LocalDataSource(Cache())});
@@ -33,7 +32,7 @@ describe('DataSource and Partial Cache', function() {
                 }).
                 doAction(secondOnNext, noOp, function() {
                     expect(secondOnNext.calledOnce).to.be.ok;
-                    expect(secondOnNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(secondOnNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             videos: {
                                 0: {
@@ -65,7 +64,7 @@ describe('DataSource and Partial Cache', function() {
                 }).
                 doAction(secondOnNext, noOp, function() {
                     expect(secondOnNext.calledOnce).to.be.ok;
-                    expect(secondOnNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(secondOnNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             lolomo: {
                                 0: {
@@ -95,7 +94,7 @@ describe('DataSource and Partial Cache', function() {
                 get(['lolomo', 0, 0, 'item', 'title'], ['lolomo', 0, 1, 'item', 'title']).
                 doAction(onNext, noOp, function() {
                     expect(onNext.calledOnce).to.be.ok;
-                    expect(onNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(onNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             lolomo: {
                                 0: {
@@ -124,7 +123,7 @@ describe('DataSource and Partial Cache', function() {
                 get(['lolomo', 0, {to: 1}, 'item', 'title']).
                 doAction(onNext, noOp, function() {
                     expect(onNext.calledOnce).to.be.ok;
-                    expect(onNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(onNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             lolomo: {
                                 0: {
@@ -195,7 +194,7 @@ describe('DataSource and Partial Cache', function() {
                 doAction(function(x) {
                     count++;
                     if (count === 1) {
-                        expect(x).to.deep.equals({
+                        expect(clean(x)).to.deep.equals({
                             json: {
                                 lolomo: {
                                     0: {
@@ -209,7 +208,7 @@ describe('DataSource and Partial Cache', function() {
                             }
                         });
                     } else {
-                        expect(x).to.deep.equals({
+                        expect(clean(x)).to.deep.equals({
                             json: {
                                 lolomo: {
                                     0: {
@@ -243,7 +242,7 @@ describe('DataSource and Partial Cache', function() {
                 doAction(function(x) {
                     count++;
                     if (count === 1) {
-                        expect(x).to.deep.equals({
+                        expect(clean(x)).to.deep.equals({
                             json: {
                                 lolomo: {
                                     0: {
@@ -257,7 +256,7 @@ describe('DataSource and Partial Cache', function() {
                             }
                         });
                     } else {
-                        expect(x).to.deep.equals({
+                        expect(clean(x)).to.deep.equals({
                             json: {
                                 lolomo: {
                                     0: {

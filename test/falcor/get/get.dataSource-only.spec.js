@@ -11,6 +11,7 @@ var cacheGenerator = require('./../../CacheGenerator');
 var clean = require('./../../cleanData').clean;
 var atom = require('falcor-json-graph').atom;
 var MaxRetryExceededError = require('./../../../lib/errors/MaxRetryExceededError');
+var clean = require('./../../cleanData').stripDerefAndVersionKeys;
 
 describe('DataSource Only', function() {
     var dataSource = new LocalDataSource(cacheGenerator(0, 2, ['title', 'art']));
@@ -31,7 +32,7 @@ describe('DataSource Only', function() {
                 }).
                 doAction(secondOnNext, noOp, function() {
                     expect(secondOnNext.calledOnce).to.be.ok;
-                    expect(secondOnNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(secondOnNext.getCall(0).args[0])).to.deep.equals({
                         json: {videos: {0: {title: 'Video 0'}}}
                     });
                 }).
@@ -64,7 +65,7 @@ describe('DataSource Only', function() {
                 doAction(secondOnNext).
                 doAction(noOp, noOp, function() {
                     expect(secondOnNext.calledOnce).to.be.ok;
-                    expect(secondOnNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(secondOnNext.getCall(0).args[0])).to.deep.equals({
                         json: {videos: {0: {title: 'Video 0'}}}
                     });
                 }).
@@ -78,7 +79,7 @@ describe('DataSource Only', function() {
             model.
                 get(['videos', 0, 'title']).
                 doAction(onNext, noOp, function() {
-                    expect(onNext.getCall(0).args[0]).to.deep.equals({
+                    expect(clean(onNext.getCall(0).args[0])).to.deep.equals({
                         json: {videos: {0: {title: 'Video 0'}}}
                     });
                 }).
@@ -240,7 +241,7 @@ describe('DataSource Only', function() {
                 expect(onNext.callCount).to.equal(0);
                 expect(onGet.callCount).to.equal(1);
                 expect(onNext2.calledOnce).to.be.ok;
-                expect(onNext2.getCall(0).args[0]).to.deep.equals({
+                expect(clean(onNext2.getCall(0).args[0])).to.deep.equals({
                     json: {
                         videos: {
                             0: {

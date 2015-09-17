@@ -13,6 +13,7 @@ var strip = require("./support/strip");
 var $ref = require("falcor-json-graph").ref;
 var $atom = require("falcor-json-graph").atom;
 var $error = require("falcor-json-graph").error;
+var clean = require('./../cleanData').stripDerefAndVersionKeys;
 
 describe("Special Cases", function() {
     it('should set in an array and the length should be set in.', function(done) {
@@ -25,13 +26,17 @@ describe("Special Cases", function() {
                 }
             }).
             flatMap(function() {
-                return model.get('foo.length');
+                return model.get(['foo', 'length']);
             }).
             doAction(onNext).
             doAction(noOp, noOp, function() {
                 expect(onNext.calledOnce).to.be.ok;
-                expect(onNext.getCall(0).args[0]).to.deep.equals({
-                    json: {foo: { length: 1 } }
+                expect(clean(onNext.getCall(0).args[0])).to.deep.equals({
+                    json: {
+                        foo: {
+                            length: 1
+                        }
+                    }
                 });
             }).
             subscribe(noOp, done, done);
@@ -102,12 +107,22 @@ describe("Special Cases", function() {
             }
         });
 
-        model._getPathValuesAsPathMap(model, get, function(x) {
-            expect(x).to.deep.equals({ json: { genreList: { 1: { 0: { summary: {
-                    "title": "Running Man",
-                    "url": "/movies/553"
-                } } } } }
-            });
+        var getSeed = [{}];
+        var out = model._getPathValuesAsPathMap(model, get, getSeed);
+
+        expect(clean(getSeed[0])).to.deep.equals({
+            json: {
+                genreList: {
+                    1: {
+                        0: {
+                            summary: {
+                                "title": "Running Man",
+                                "url": "/movies/553"
+                            }
+                        }
+                    }
+                }
+            }
         });
     });
 });

@@ -126,5 +126,33 @@ describe('Missing', function() {
             cache: missingCache
         });
     });
+
+    it('should get both values and the missing values and clean up the output as it created it without deleting prior found values.', function() {
+        getCoreRunner({
+            input: [
+                ['values', 0, 'title'],
+                ['values', 1, 'title'],
+                ['values', 2, 'title']
+            ],
+            output: {
+                json: {
+                    values: {
+                        1: {
+                            title: 'Video 0'
+                        }
+                    }
+                }
+            },
+            requestedMissingPaths: [
+                ['values', 0, 'title'],
+                ['values', 2, 'title']
+            ],
+            optimizedMissingPaths: [
+                ['v0', 'title'],
+                ['v2', 'title']
+            ],
+            cache: missingCache
+        });
+    });
 });
 
