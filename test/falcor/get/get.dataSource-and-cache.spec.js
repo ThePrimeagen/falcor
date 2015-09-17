@@ -15,7 +15,7 @@ var Cache = function() {
     return cacheGenerator(0, 40);
 };
 
-describe.only('DataSource and Partial Cache', function() {
+describe('DataSource and Partial Cache', function() {
     describe('Preload Functions', function() {
         it('should get multiple arguments with multiple selector function args.', function(done) {
             var model = new Model({cache: M(), source: new LocalDataSource(Cache())});
