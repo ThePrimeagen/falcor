@@ -164,7 +164,7 @@ describe('#get', function() {
         expect(queue._requests[0].scheduled).to.equal(false);
         expect(queue._requests[1].scheduled).to.equal(false);
 
-        disposable();
+        disposable.dispose();
     });
 
     it('should make a couple requests where the second request is deduped and the first is disposed.', function(done) {
@@ -203,7 +203,7 @@ describe('#get', function() {
         expect(queue._requests[0].sent).to.equal(true);
         expect(queue._requests[0].scheduled).to.equal(false);
 
-        disposable();
+        disposable.dispose();
     });
 
     it('should make a couple requests where the second argument is deduped and all the requests are disposed.', function(done) {
@@ -234,8 +234,8 @@ describe('#get', function() {
         expect(queue._requests[0].sent).to.equal(true);
         expect(queue._requests[0].scheduled).to.equal(false);
 
-        disposable();
-        disposable2();
+        disposable.dispose();
+        disposable2.dispose();
     });
 
     it('should make a couple requests where only part of the second request is deduped then disposed.', function(done) {
@@ -274,7 +274,7 @@ describe('#get', function() {
         expect(queue._requests[1].sent).to.equal(true);
         expect(queue._requests[1].scheduled).to.equal(false);
 
-        disposable2();
+        disposable2.dispose();
     });
 
     it('should make a couple requests where only part of the second request is deduped then both are disposed.', function(done) {
@@ -305,8 +305,8 @@ describe('#get', function() {
         expect(queue._requests[1].sent).to.equal(true);
         expect(queue._requests[1].scheduled).to.equal(false);
 
-        disposable();
-        disposable2();
+        disposable.dispose();
+        disposable2.dispose();
     });
 });
 
