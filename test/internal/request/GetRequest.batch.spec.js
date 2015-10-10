@@ -6,7 +6,7 @@ var ImmediateScheduler = require('./../../../lib/schedulers/ImmediateScheduler')
 var Rx = require('rx');
 var Model = require('./../../../lib').Model;
 var LocalDataSource = require('./../../data/LocalDataSource');
-var zipSpy = require('./../../zipSpy');
+var createCallbackCounter = require('./../../createCallbackCounter');
 
 var cacheGenerator = require('./../../CacheGenerator');
 var strip = require('./../../cleanData').stripDerefAndVersionKeys;
@@ -29,8 +29,7 @@ describe('#batch', function() {
             removeRequest: function() { },
             model: model
         });
-
-        var disposable = request.batch([videos0], [videos0], function(err, data) {
+        var callbackCounter = createCallbackCounter(1, function(err, data) {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -52,6 +51,8 @@ describe('#batch', function() {
                 }).
                 subscribe(noOp, done, done);
         });
+
+        var disposable = request.batch([videos0], [videos0], callbackCounter);
         inlineBoolean = false;
     });
 
@@ -67,7 +68,7 @@ describe('#batch', function() {
             removeRequest: function() { },
             model: model
         });
-        var callback = sinon.spy(function(err, data) {
+        var callback = createCallbackCounter(1, function(err, data) {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -106,7 +107,7 @@ describe('#batch', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var zip = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -143,13 +144,13 @@ describe('#batch', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var callback = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
                 get(videos0, videos1).
                 doAction(onNext, noOp, function() {
-                    expect(zip.calledOnce).to.be.ok;
+                    expect(callback.spy.calledOnce).to.be.ok;
                     expect(strip(onNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             videos: {
@@ -162,8 +163,8 @@ describe('#batch', function() {
                 }).
                 subscribe(noOp, done, done);
         }, 300);
-        var disposable1 = request.batch([videos0], [videos0], zip);
-        var disposable2 = request.batch([videos1], [videos1], zip);
+        var disposable1 = request.batch([videos0], [videos0], callback);
+        var disposable2 = request.batch([videos1], [videos1], callback);
 
         disposable1();
     });
@@ -180,13 +181,13 @@ describe('#batch', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var callback = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
                 get(videos0, videos1).
                 doAction(onNext, noOp, function() {
-                    expect(zip.calledOnce).to.be.ok;
+                    expect(callback.spy.calledOnce).to.be.ok;
                     expect(strip(onNext.getCall(0).args[0])).to.deep.equals({
                         json: {
                             videos: {
@@ -199,8 +200,8 @@ describe('#batch', function() {
                 }).
                 subscribe(noOp, done, done);
         }, 300);
-        var disposable1 = request.batch([videos0], [videos0], zip);
-        var disposable2 = request.batch([videos1], [videos1], zip);
+        var disposable1 = request.batch([videos0], [videos0], callback);
+        var disposable2 = request.batch([videos1], [videos1], callback);
 
         disposable2();
     });

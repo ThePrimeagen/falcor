@@ -9,8 +9,9 @@ var LocalDataSource = require('./../../data/LocalDataSource');
 var cacheGenerator = require('./../../CacheGenerator');
 var strip = require('./../../cleanData').stripDerefAndVersionKeys;
 var noOp = function() {};
-
 var Cache = function() { return cacheGenerator(0, 2); };
+var createCallbackCounter = require('./../../createCallbackCounter');
+
 describe('#add', function() {
     var videos0 = ['videos', 0, 'title'];
     var videos1 = ['videos', 1, 'title'];
@@ -28,7 +29,7 @@ describe('#add', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var zip = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -73,7 +74,7 @@ describe('#add', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var zip = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -119,7 +120,7 @@ describe('#add', function() {
             model: model
         });
 
-        var zip = zipSpy(2, function() {
+        var zip = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -148,7 +149,7 @@ describe('#add', function() {
         expect(request.sent, 'request should be sent').to.be.ok;
 
         var results = request.add([videos0, videos1], [videos0, videos1], zip);
-        zip();
+        zip.callback();
     });
 
     it('should send a request and dedupe another and dispose of deduped.', function(done) {
@@ -165,7 +166,7 @@ describe('#add', function() {
         });
 
 
-        var zip = zipSpy(2, function() {
+        var zip = createCallbackCounter(2, function() {
             var onNext = sinon.spy();
             model.
                 withoutDataSource().
@@ -195,14 +196,6 @@ describe('#add', function() {
 
         var results = request.add([videos0, videos1], [videos0, videos1], zip);
         results[3]();
-        zip();
+        zip.callback();
     });
 });
-function zipSpy(count, cb) {
-    return sinon.spy(function() {
-        --count;
-        if (count === 0) {
-            cb();
-        }
-    });
-}
