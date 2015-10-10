@@ -166,7 +166,7 @@ describe('#batch', function() {
         var disposable1 = request.batch([videos0], [videos0], callback);
         var disposable2 = request.batch([videos1], [videos1], callback);
 
-        disposable1();
+        disposable1.dispose();
     });
 
     it('should batch some requests together and dispose the second one.', function(done) {
@@ -203,6 +203,6 @@ describe('#batch', function() {
         var disposable1 = request.batch([videos0], [videos0], callback);
         var disposable2 = request.batch([videos1], [videos1], callback);
 
-        disposable2();
+        disposable2.dispose();
     });
 });
