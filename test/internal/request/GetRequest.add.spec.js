@@ -195,7 +195,7 @@ describe('#add', function() {
         expect(request.sent, 'request should be sent').to.be.ok;
 
         var results = request.add([videos0, videos1], [videos0, videos1], zip);
-        results[3]();
+        results[3].dispose();
         zip.callback();
     });
 });
