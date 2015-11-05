@@ -4,7 +4,6 @@ var Rx = require('rx');
 var noOp = function() {};
 var Observable = Rx.Observable;
 var CacheGenerator = require('./../../CacheGenerator');
-var toObservable = require('./../../toObs');
 var strip = require('./../../cleanData').stripDerefAndVersionKeys;
 var sinon = require('sinon');
 var expect = require('chai').expect;
@@ -14,31 +13,40 @@ describe.only('Path Syntax', function() {
     model._root.unsafeMode = true;
     it('should accept strings for get.', function(done) {
         var onNext = sinon.spy();
-        toObservable(model.get('lolomo[0][0].item.title', 'lolomo[0][1].item.title')).
-            doAction(onNext, noOp, function() {
-                expect(strip(onNext.getCall(0).args[0])).to.deep.equals({
-                    json: {
-                        lolomo: {
-                            0: {
+        model.get('lolomo[0][0].item.title', 'lolomo[0][1].item.title').
+            subscribe(onNext, done, function() {
+                try {
+                    expect(strip(onNext.getCall(0).args[0])).to.deep.equals({
+                        json: {
+                            lolomo: {
                                 0: {
-                                    item: { title: 'Video 0' }
-                                },
-                                1: {
-                                    item: { title: 'Video 1' }
+                                    0: {
+                                        item: { title: 'Video 0' }
+                                    },
+                                    1: {
+                                        item: { title: 'Video 1' }
+                                    }
                                 }
                             }
                         }
-                    }
-                });
-            }).
-            subscribe(noOp, done, done);
+                    });
+                } catch (e) {
+                    return done(e);
+                }
+                done();
+            });
     });
     it('should accept strings for getValue', function(done) {
         var onNext = sinon.spy();
-        toObservable(model.getValue('videos[0].title')).
-            doAction(onNext, noOp, function() {
-                expect(onNext.getCall(0).args[0]).to.deep.equals('Video 0');
-            }).
-            subscribe(noOp, done, done);
+        model.
+            getValue('videos[0].title').
+            subscribe(onNext, done, function() {
+                try {
+                    expect(onNext.getCall(0).args[0]).to.deep.equals('Video 0');
+                } catch (e) {
+                    return done(e);
+                }
+                done();
+            });
     });
 });
