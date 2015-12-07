@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Netflix/falcor/compare/v0.1.14...v1.0.0) (2015-12-07)
+
+
+### Features
+
+* **change_log:** Added the clog version value to the Model ([5c78b5f](https://github.com/Netflix/falcor/commit/5c78b5f))
+
+
+
 1.0.0
 -------------------
 
