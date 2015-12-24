@@ -5,5 +5,17 @@ var model = new falcor.Model({
     cache: cache
 });
 
-// THERE WE GO
-model.get(['lolomo', 0, {to:9}, 'item', 'title']).subscribe();
+function callFalcor() {
+    for (var i = 0; i < 1000; ++i) {
+        model.get(['lolomo', 0, {to:9}, 'item', 'title']).subscribe();
+    }
+    async();
+}
+
+function async() {
+    setTimeout(function() {
+        callFalcor();
+    }, 0);
+}
+
+async();
