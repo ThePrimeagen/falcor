@@ -12,6 +12,10 @@ function callFalcor() {
     async();
 }
 
+// I add this async loop because I see much better results with flame graph
+// generation when there is some sort of break, instead of while(true){...}.
+// this is with option node --perf-basic-prof-only-functions or
+// --perf-basic-prof
 function async() {
     setTimeout(function() {
         callFalcor();
