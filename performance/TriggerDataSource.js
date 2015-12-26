@@ -1,4 +1,4 @@
-var Rx = require("rx");
+var ModelResponse = require('./../lib/response/ModelResponse');
 var TriggerDataSource = function TriggerDataSource(response) {
     this._triggers = [];
     this._idx = -1;
@@ -14,7 +14,7 @@ var TriggerDataSource = function TriggerDataSource(response) {
 TriggerDataSource.prototype = {
     get: function(paths) {
         var self = this;
-        return Rx.Observable.create(function(observer) {
+        return new ModelResponse(function(observer) {
             self._triggers.push(function() {
                 var out = self._response[++self._idx % self._length];
                 if (typeof out === 'function') {
