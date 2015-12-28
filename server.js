@@ -35,8 +35,11 @@ if (require.main === module) {
             listen(port, true);
             break;
         case "coverage":
-        default:
             coverage(port, true);
+            break;
+        default:
+            app.use(express.static("."));
+            listen(port, true);
             break;
     }
 }
