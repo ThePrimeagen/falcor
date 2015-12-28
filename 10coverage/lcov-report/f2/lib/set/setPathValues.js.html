@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/set/setPathValues.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/set/</a> setPathValues.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.6% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/125</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.6% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/125</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var __key = require("./../internal/key");
+var __ref = require("./../internal/ref");
+var __parent = require("./../internal/parent");
+var __context = require("./../internal/context");
+var __version = require("./../internal/version");
+var __refIndex = require("./../internal/ref-index");
+var __refsLength = require("./../internal/refs-length");
+&nbsp;
+var $ref = require("./../types/ref");
+&nbsp;
+var getBoundValue = require("./../get/getBoundValue");
+&nbsp;
+var promote = require("./../lru/promote");
+var isExpired = require("./../support/isExpired");
+var isFunction = require("./../support/isFunction");
+var isPrimitive = require("./../support/isPrimitive");
+var expireNode = require("./../support/expireNode");
+var iterateKeySet = require("falcor-path-utils").iterateKeySet;
+var incrementVersion = require("./../support/incrementVersion");
+var mergeValueOrInsertBranch = require("./../support/mergeValueOrInsertBranch");
+var NullInPathError = require("./../errors/NullInPathError");
+&nbsp;
+/**
+ * Sets a list of {@link PathValue}s into a {@link JSONGraph}.
+ * @function
+ * @param {Object} model - the Model for which to insert the {@link PathValue}s.
+ * @param {Array.&lt;PathValue&gt;} pathValues - the list of {@link PathValue}s to set.
+ * @return {Array.&lt;Array.&lt;Path&gt;&gt;} - an Array of Arrays where each inner Array is a list of requested and optimized paths (respectively) for the successfully set values.
+ */
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function setPathValues(model, pathValues, x, errorSelector, comparator) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var modelRoot = model._root;</span>
+<span class="cstat-no" title="statement not covered" >    var lru = modelRoot;</span>
+<span class="cstat-no" title="statement not covered" >    var expired = modelRoot.expired;</span>
+<span class="cstat-no" title="statement not covered" >    var version = incrementVersion();</span>
+<span class="cstat-no" title="statement not covered" >    var bound = model._path;</span>
+<span class="cstat-no" title="statement not covered" >    var cache = modelRoot.cache;</span>
+<span class="cstat-no" title="statement not covered" >    var node = bound.length ? getBoundValue(model, bound).value : cache;</span>
+<span class="cstat-no" title="statement not covered" >    var parent = node[__parent] || cache;</span>
+<span class="cstat-no" title="statement not covered" >    var initialVersion = cache[__version];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var requestedPath = [];</span>
+<span class="cstat-no" title="statement not covered" >    var requestedPaths = [];</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedPaths = [];</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedIndex = bound.length;</span>
+<span class="cstat-no" title="statement not covered" >    var pathValueIndex = -1;</span>
+<span class="cstat-no" title="statement not covered" >    var pathValueCount = pathValues.length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    while (++pathValueIndex &lt; pathValueCount) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var pathValue = pathValues[pathValueIndex];</span>
+<span class="cstat-no" title="statement not covered" >        var path = pathValue.path;</span>
+<span class="cstat-no" title="statement not covered" >        var value = pathValue.value;</span>
+<span class="cstat-no" title="statement not covered" >        var optimizedPath = bound.slice(0);</span>
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = optimizedIndex;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        setPathSet(</span>
+            value, path, 0, cache, parent, node,
+            requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var newVersion = cache[__version];</span>
+<span class="cstat-no" title="statement not covered" >    var rootChangeHandler = modelRoot.onChange;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isFunction(rootChangeHandler) &amp;&amp; initialVersion !== newVersion) {</span>
+<span class="cstat-no" title="statement not covered" >        rootChangeHandler();</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return [requestedPaths, optimizedPaths];</span>
+};
+&nbsp;
+/* eslint-disable no-constant-condition */
+<span class="fstat-no" title="function not covered" >function setPathSet(</span>
+    value, path, depth, root, parent, node,
+    requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var note = {};</span>
+<span class="cstat-no" title="statement not covered" >    var branch = depth &lt; path.length - 1;</span>
+<span class="cstat-no" title="statement not covered" >    var keySet = path[depth];</span>
+<span class="cstat-no" title="statement not covered" >    var key = iterateKeySet(keySet, note);</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedIndex = optimizedPath.index;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    do {</span>
+<span class="cstat-no" title="statement not covered" >        var results = setNode(</span>
+            root, parent, node, key, value,
+            branch, false, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+<span class="cstat-no" title="statement not covered" >        requestedPath[depth] = key;</span>
+<span class="cstat-no" title="statement not covered" >        requestedPath.index = depth;</span>
+<span class="cstat-no" title="statement not covered" >        optimizedPath[optimizedPath.index++] = key;</span>
+<span class="cstat-no" title="statement not covered" >        var nextNode = results[0];</span>
+<span class="cstat-no" title="statement not covered" >        var nextParent = results[1];</span>
+<span class="cstat-no" title="statement not covered" >        if (nextNode) {</span>
+<span class="cstat-no" title="statement not covered" >            if (branch) {</span>
+<span class="cstat-no" title="statement not covered" >                setPathSet(</span>
+                    value, path, depth + 1,
+                    root, nextParent, nextNode,
+                    requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+                    version, expired, lru, comparator, errorSelector
+                );
+            } else {
+<span class="cstat-no" title="statement not covered" >                promote(lru, nextNode);</span>
+<span class="cstat-no" title="statement not covered" >                requestedPaths.push(requestedPath.slice(0, requestedPath.index + 1));</span>
+<span class="cstat-no" title="statement not covered" >                optimizedPaths.push(optimizedPath.slice(0, optimizedPath.index));</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        key = iterateKeySet(keySet, note);</span>
+<span class="cstat-no" title="statement not covered" >        if (note.done) {</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = optimizedIndex;</span>
+    } while (true);
+}
+/* eslint-enable */
+&nbsp;
+<span class="fstat-no" title="function not covered" >function setReference(</span>
+    value, root, node, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var reference = node.value;</span>
+<span class="cstat-no" title="statement not covered" >    optimizedPath.splice(0, optimizedPath.length);</span>
+<span class="cstat-no" title="statement not covered" >    optimizedPath.push.apply(optimizedPath, reference);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isExpired(node)) {</span>
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = reference.length;</span>
+<span class="cstat-no" title="statement not covered" >        expireNode(node, expired, lru);</span>
+<span class="cstat-no" title="statement not covered" >        return [undefined, root];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    promote(lru, node);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var container = node;</span>
+<span class="cstat-no" title="statement not covered" >    var parent = root;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    node = node[__context];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (node != null) {</span>
+<span class="cstat-no" title="statement not covered" >        parent = node[__parent] || root;</span>
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = reference.length;</span>
+    } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var index = 0;</span>
+<span class="cstat-no" title="statement not covered" >        var count = reference.length - 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        parent = node = root;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        do {</span>
+<span class="cstat-no" title="statement not covered" >            var key = reference[index];</span>
+<span class="cstat-no" title="statement not covered" >            var branch = index &lt; count;</span>
+<span class="cstat-no" title="statement not covered" >            optimizedPath.index = index;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var results = setNode(</span>
+                root, parent, node, key, value,
+                branch, true, requestedPath, optimizedPath,
+                version, expired, lru, comparator, errorSelector
+            );
+<span class="cstat-no" title="statement not covered" >            node = results[0];</span>
+<span class="cstat-no" title="statement not covered" >            if (isPrimitive(node)) {</span>
+<span class="cstat-no" title="statement not covered" >                optimizedPath.index = index;</span>
+<span class="cstat-no" title="statement not covered" >                return results;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            parent = results[1];</span>
+        } while (index++ &lt; count);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = index;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (container[__context] !== node) {</span>
+<span class="cstat-no" title="statement not covered" >            var backRefs = node[__refsLength] || 0;</span>
+<span class="cstat-no" title="statement not covered" >            node[__refsLength] = backRefs + 1;</span>
+<span class="cstat-no" title="statement not covered" >            node[__ref + backRefs] = container;</span>
+<span class="cstat-no" title="statement not covered" >            container[__context] = node;</span>
+<span class="cstat-no" title="statement not covered" >            container[__refIndex] = backRefs;</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return [node, parent];</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function setNode(</span>
+    root, parent, node, key, value,
+    branch, reference, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var type = node.$type;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    while (type === $ref) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var results = setReference(</span>
+            value, root, node, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        node = results[0];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (isPrimitive(node)) {</span>
+<span class="cstat-no" title="statement not covered" >            return results;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        parent = results[1];</span>
+<span class="cstat-no" title="statement not covered" >        type = node.$type;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (type !== void 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return [node, parent];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (key == null) {</span>
+<span class="cstat-no" title="statement not covered" >        if (branch) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new NullInPathError();</span>
+        } else <span class="cstat-no" title="statement not covered" >if (node) {</span>
+<span class="cstat-no" title="statement not covered" >            key = node[__key];</span>
+        }
+    } else {
+<span class="cstat-no" title="statement not covered" >        parent = node;</span>
+<span class="cstat-no" title="statement not covered" >        node = parent[key];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    node = mergeValueOrInsertBranch(</span>
+        parent, node, key, value,
+        branch, reference, requestedPath, optimizedPath,
+        version, expired, lru, comparator, errorSelector
+    );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return [node, parent];</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

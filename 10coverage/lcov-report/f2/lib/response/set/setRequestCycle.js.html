@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/response/set/setRequestCycle.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">f2/lib/response/set/</a> setRequestCycle.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.26% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>10/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.26% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>10/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var emptyArray = [];
+var AssignableDisposable = require("./../AssignableDisposable");
+var GetResponse = require("./../get/GetResponse");
+var setGroupsIntoCache = require("./setGroupsIntoCache");
+var getWithPathsAsPathMap = require("./../../get").getWithPathsAsPathMap;
+var InvalidSourceError = require("./../../errors/InvalidSourceError");
+var MaxRetryExceededError = require("./../../errors/MaxRetryExceededError");
+&nbsp;
+/**
+ * The request cycle for set.  This is responsible for requesting to dataSource
+ * and allowing disposing inflight requests.
+ */
+module.exports = <span class="fstat-no" title="function not covered" >function setRequestCycle(model, observer, groups,</span>
+                                          isJSONGraph, isProgressive, count) {
+    // we have exceeded the maximum retry limit.
+<span class="cstat-no" title="statement not covered" >    if (count === 10) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new MaxRetryExceededError();</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var requestedAndOptimizedPaths = setGroupsIntoCache(model, groups);</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedPaths = requestedAndOptimizedPaths.optimizedPaths;</span>
+<span class="cstat-no" title="statement not covered" >    var requestedPaths = requestedAndOptimizedPaths.requestedPaths;</span>
+<span class="cstat-no" title="statement not covered" >    var isMaster = model._source === undefined;</span>
+&nbsp;
+    // Local set only.  We perform a follow up get.  If performance is ever
+    // a requirement simply requiring in checkCacheAndReport and use get request
+    // internals.  Figured this is more "pure".
+<span class="cstat-no" title="statement not covered" >    if (isMaster) {</span>
+<span class="cstat-no" title="statement not covered" >        return subscribeToFollowupGet(model, observer, requestedPaths,</span>
+                              isJSONGraph, isProgressive);
+    }
+&nbsp;
+&nbsp;
+    // Progressively output the data from the first set.
+<span class="cstat-no" title="statement not covered" >    if (isProgressive) {</span>
+<span class="cstat-no" title="statement not covered" >        var json = {};</span>
+<span class="cstat-no" title="statement not covered" >        getWithPathsAsPathMap(model, requestedPaths, [json]);</span>
+<span class="cstat-no" title="statement not covered" >        observer.onNext(json);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var currentJSONGraph = getJSONGraph(model, optimizedPaths);</span>
+<span class="cstat-no" title="statement not covered" >    var disposable = new AssignableDisposable();</span>
+&nbsp;
+    // Sends out the setRequest.  The Queue will call the callback with the
+    // JSONGraph envelope / error.
+<span class="cstat-no" title="statement not covered" >    var requestDisposable = model._request.</span>
+        // TODO: There is error handling that has not been addressed yet.
+&nbsp;
+        // If disposed before this point then the sendSetRequest will not
+        // further any callbacks.  Therefore, if we are at this spot, we are
+        // not disposed yet.
+        set(currentJSONGraph, <span class="fstat-no" title="function not covered" >function(error, jsonGraphEnv) {</span>
+<span class="cstat-no" title="statement not covered" >            if (typeof error === InvalidSourceError) {</span>
+<span class="cstat-no" title="statement not covered" >                return observer.onError(error);</span>
+            }
+&nbsp;
+            // TODO: This seems like there are errors with this approach, but
+            // for sanity sake I am going to keep this logic in here until a
+            // rethink can be done.
+<span class="cstat-no" title="statement not covered" >            var isCompleted = false;</span>
+<span class="cstat-no" title="statement not covered" >            if (error || optimizedPaths.length === jsonGraphEnv.paths.length) {</span>
+<span class="cstat-no" title="statement not covered" >                isCompleted = true;</span>
+            }
+&nbsp;
+            // Happy case.  One request to the dataSource will fulfill the
+            // required paths.
+<span class="cstat-no" title="statement not covered" >            if (isCompleted) {</span>
+<span class="cstat-no" title="statement not covered" >                disposable.currentDisposable =</span>
+                    subscribeToFollowupGet(model, observer, requestedPaths,
+                                          isJSONGraph, isProgressive);
+            }
+&nbsp;
+            // TODO: The unhappy case.  I am unsure how this can even be
+            // achieved.
+            else {
+                // We need to restart the setRequestCycle.
+<span class="cstat-no" title="statement not covered" >                setRequestCycle(model, observer, groups, isJSONGraph,</span>
+                                isProgressive, count + 1);
+            }
+        });
+&nbsp;
+    // Sets the current disposable as the requestDisposable.
+<span class="cstat-no" title="statement not covered" >    disposable.currentDisposable = requestDisposable;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return disposable;</span>
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getJSONGraph(model, optimizedPaths) {</span>
+<span class="cstat-no" title="statement not covered" >    var boundPath = model._path;</span>
+<span class="cstat-no" title="statement not covered" >    var envelope = {};</span>
+<span class="cstat-no" title="statement not covered" >    model._path = emptyArray;</span>
+<span class="cstat-no" title="statement not covered" >    model._getPathValuesAsJSONG(model._materialize().withoutDataSource(), optimizedPaths, [envelope]);</span>
+<span class="cstat-no" title="statement not covered" >    model._path = boundPath;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return envelope;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function subscribeToFollowupGet(model, observer, requestedPaths, isJSONGraph,</span>
+                               isProgressive) {
+&nbsp;
+    // Creates a new response and subscribes to it with the original observer.
+    // Also sets forceCollect to true, incase the operation is synchronous and
+    // exceeds the cache limit size
+<span class="cstat-no" title="statement not covered" >    var response = new GetResponse(model, requestedPaths, isJSONGraph,</span>
+                                   isProgressive, true);
+<span class="cstat-no" title="statement not covered" >    return response.subscribe(observer);</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

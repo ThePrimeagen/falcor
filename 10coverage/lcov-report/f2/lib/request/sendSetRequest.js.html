@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/request/sendSetRequest.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/request/</a> sendSetRequest.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.22% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.22% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var arrayMap = require("./../support/array-map");
+var setJSONGraphs = require("./../set/setJSONGraphs");
+var setPathValues = require("./../set/setPathValues");
+var InvalidSourceError = require("./../errors/InvalidSourceError");
+&nbsp;
+var emptyArray = [];
+var emptyDisposable = {dispose: <span class="fstat-no" title="function not covered" >function() {</span>}};
+&nbsp;
+/**
+ * A set request is not an object like GetRequest.  It simply only needs to
+ * close over a couple values and its never batched together (at least not now).
+ *
+ * @private
+ * @param {JSONGraphEnvelope} jsonGraph -
+ * @param {Model} model -
+ * @param {Function} callback -
+ */
+var sendSetRequest = <span class="fstat-no" title="function not covered" >function(originalJsonGraph, model, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var paths = originalJsonGraph.paths;</span>
+<span class="cstat-no" title="statement not covered" >    var modelRoot = model._root;</span>
+<span class="cstat-no" title="statement not covered" >    var errorSelector = modelRoot.errorSelector;</span>
+<span class="cstat-no" title="statement not covered" >    var comparator = modelRoot.comparator;</span>
+<span class="cstat-no" title="statement not covered" >    var boundPath = model._path;</span>
+<span class="cstat-no" title="statement not covered" >    var resultingJsonGraphEnvelope;</span>
+&nbsp;
+    // This is analogous to GetRequest _merge / flushGetRequest
+    // SetRequests are just considerably simplier.
+<span class="cstat-no" title="statement not covered" >    var setObservable;</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        setObservable = model._source.</span>
+            set(originalJsonGraph);
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        callback(new InvalidSourceError());</span>
+<span class="cstat-no" title="statement not covered" >        return emptyDisposable;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var disposable = setObservable.</span>
+        subscribe(<span class="fstat-no" title="function not covered" >function onNext(jsonGraphEnvelope) {</span>
+            // When disposed, no data is inserted into.  This can sync resolve
+            // and if thats the case then its undefined.
+<span class="cstat-no" title="statement not covered" >            if (disposable &amp;&amp; disposable.disposed) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            // onNext will insert all data into the model then save the json
+            // envelope from the incoming result.
+<span class="cstat-no" title="statement not covered" >            model._path = emptyArray;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var successfulPaths = setJSONGraphs(model, [{</span>
+                paths: paths,
+                jsonGraph: jsonGraphEnvelope.jsonGraph
+            }], null, errorSelector, comparator);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            jsonGraphEnvelope.paths = successfulPaths[1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            model._path = boundPath;</span>
+<span class="cstat-no" title="statement not covered" >            resultingJsonGraphEnvelope = jsonGraphEnvelope;</span>
+        }, <span class="fstat-no" title="function not covered" >function onError(dataSourceError) {</span>
+<span class="cstat-no" title="statement not covered" >            if (disposable &amp;&amp; disposable.disposed) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            model._path = emptyArray;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            setPathValues(model, arrayMap(paths, <span class="fstat-no" title="function not covered" >function(path) {</span></span>
+<span class="cstat-no" title="statement not covered" >                return {</span>
+                    path: path,
+                    value: dataSourceError
+                };
+            }), null, errorSelector, comparator);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            model._path = boundPath;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            callback(dataSourceError);</span>
+        }, <span class="fstat-no" title="function not covered" >function onCompleted() {</span>
+<span class="cstat-no" title="statement not covered" >            callback(null, resultingJsonGraphEnvelope);</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return disposable;</span>
+};
+&nbsp;
+module.exports = sendSetRequest;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

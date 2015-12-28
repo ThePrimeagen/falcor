@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/get/getValueSync.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/get/</a> getValueSync.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.94% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.94% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var followReference = require("./../get/followReference");
+var clone = require("./../get/util/clone");
+var isExpired = require("./../get/util/isExpired");
+var promote = require("./../lru/promote");
+var $ref = require("./../types/ref");
+var $atom = require("./../types/atom");
+var $error = require("./../types/error");
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function getValueSync(model, simplePath, noClone) {</span>
+<span class="cstat-no" title="statement not covered" >    var root = model._root.cache;</span>
+<span class="cstat-no" title="statement not covered" >    var len = simplePath.length;</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedPath = [];</span>
+<span class="cstat-no" title="statement not covered" >    var shorted = false, shouldShort = false;</span>
+<span class="cstat-no" title="statement not covered" >    var depth = 0;</span>
+<span class="cstat-no" title="statement not covered" >    var key, i, next = root, curr = root, out = root, type, ref, refNode;</span>
+<span class="cstat-no" title="statement not covered" >    var found = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    while (next &amp;&amp; depth &lt; len) {</span>
+<span class="cstat-no" title="statement not covered" >        key = simplePath[depth++];</span>
+<span class="cstat-no" title="statement not covered" >        if (key !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            next = curr[key];</span>
+<span class="cstat-no" title="statement not covered" >            optimizedPath[optimizedPath.length] = key;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!next) {</span>
+<span class="cstat-no" title="statement not covered" >            out = void 0;</span>
+<span class="cstat-no" title="statement not covered" >            shorted = true;</span>
+<span class="cstat-no" title="statement not covered" >            found = false;</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        type = next.$type;</span>
+&nbsp;
+        // Up to the last key we follow references, ensure that they are not
+        // expired either.
+<span class="cstat-no" title="statement not covered" >        if (depth &lt; len) {</span>
+<span class="cstat-no" title="statement not covered" >            if (type === $ref &amp;&amp; !isExpired(next)) {</span>
+<span class="cstat-no" title="statement not covered" >                ref = followReference(model, root, root, next, next.value);</span>
+<span class="cstat-no" title="statement not covered" >                refNode = ref[0];</span>
+&nbsp;
+                // The next node is also set to undefined because nothing
+                // could be found, this reference points to nothing, so
+                // nothing must be returned.
+<span class="cstat-no" title="statement not covered" >                if (!refNode) {</span>
+<span class="cstat-no" title="statement not covered" >                    out = void 0;</span>
+<span class="cstat-no" title="statement not covered" >                    next = void 0;</span>
+<span class="cstat-no" title="statement not covered" >                    found = false;</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                type = refNode.$type;</span>
+<span class="cstat-no" title="statement not covered" >                next = refNode;</span>
+<span class="cstat-no" title="statement not covered" >                optimizedPath = ref[1].slice(0);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (type) {</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+        // If there is a value, then we have great success, else, report an undefined.
+        else {
+<span class="cstat-no" title="statement not covered" >            out = next;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        curr = next;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (depth &lt; len) {</span>
+        // Unfortunately, if all that follows are nulls, then we have not shorted.
+<span class="cstat-no" title="statement not covered" >        for (i = depth; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >            if (simplePath[depth] !== null) {</span>
+<span class="cstat-no" title="statement not covered" >                shouldShort = true;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+        // if we should short or report value.  Values are reported on nulls.
+<span class="cstat-no" title="statement not covered" >        if (shouldShort) {</span>
+<span class="cstat-no" title="statement not covered" >            shorted = true;</span>
+<span class="cstat-no" title="statement not covered" >            out = void 0;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            out = next;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (i = depth; i &lt; len; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >            if (simplePath[i] !== null) {</span>
+<span class="cstat-no" title="statement not covered" >                optimizedPath[optimizedPath.length] = simplePath[i];</span>
+            }
+        }
+    }
+&nbsp;
+    // promotes if not expired
+<span class="cstat-no" title="statement not covered" >    if (out &amp;&amp; type) {</span>
+<span class="cstat-no" title="statement not covered" >        if (isExpired(out)) {</span>
+<span class="cstat-no" title="statement not covered" >            out = void 0;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            promote(model._root, out);</span>
+        }
+    }
+&nbsp;
+    // if (out &amp;&amp; out.$type === $error &amp;&amp; !model._treatErrorsAsValues) {
+<span class="cstat-no" title="statement not covered" >    if (out &amp;&amp; type === $error &amp;&amp; !model._treatErrorsAsValues) {</span>
+<span class="cstat-no" title="statement not covered" >        throw {</span>
+            path: depth === len ? simplePath : simplePath.slice(0, depth),
+            value: out.value
+        };
+    } else <span class="cstat-no" title="statement not covered" >if (out &amp;&amp; model._boxed) {</span>
+<span class="cstat-no" title="statement not covered" >        out = Boolean(type) &amp;&amp; !noClone ? clone(out) : out;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (!out &amp;&amp; model._materialized) {</span>
+<span class="cstat-no" title="statement not covered" >        out = {$type: $atom};</span>
+    } else <span class="cstat-no" title="statement not covered" >if (out) {</span>
+<span class="cstat-no" title="statement not covered" >        out = out.value;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        value: out,
+        shorted: shorted,
+        optimizedPath: optimizedPath,
+        found: found
+    };
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

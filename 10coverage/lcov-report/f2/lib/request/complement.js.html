@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/request/complement.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/request/</a> complement.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.04% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.04% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/23</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var hasIntersection = require("falcor-path-utils").hasIntersection;
+var arraySlice = require("./../support/array-slice");
+&nbsp;
+/**
+ * creates the complement of the requested and optimized paths
+ * based on the provided tree.
+ *
+ * If there is no complement then this is just a glorified
+ * array copy.
+ */
+module.exports = <span class="fstat-no" title="function not covered" >function complement(requested, optimized, tree) {</span>
+<span class="cstat-no" title="statement not covered" >    var optimizedComplement = [];</span>
+<span class="cstat-no" title="statement not covered" >    var requestedComplement = [];</span>
+<span class="cstat-no" title="statement not covered" >    var requestedIntersection = [];</span>
+<span class="cstat-no" title="statement not covered" >    var intersectionLength = -1, complementLength = -1;</span>
+<span class="cstat-no" title="statement not covered" >    var intersectionFound = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (var i = 0, len = optimized.length; i &lt; len; ++i) {</span>
+        // If this does not intersect then add it to the output.
+<span class="cstat-no" title="statement not covered" >        var path = optimized[i];</span>
+<span class="cstat-no" title="statement not covered" >        var subTree = tree[path.length];</span>
+&nbsp;
+        // If there is no subtree to look into or there is no intersection.
+<span class="cstat-no" title="statement not covered" >        if (!subTree || !hasIntersection(subTree, path, 0)) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (intersectionFound) {</span>
+<span class="cstat-no" title="statement not covered" >                optimizedComplement[++complementLength] = path;</span>
+<span class="cstat-no" title="statement not covered" >                requestedComplement[complementLength] = requested[i];</span>
+            }
+        } else {
+            // If there has been no intersection yet and
+            // i is bigger than 0 (meaning we have had only complements)
+            // then we need to update our complements to match the current
+            // reality.
+<span class="cstat-no" title="statement not covered" >            if (!intersectionFound &amp;&amp; i &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                requestedComplement = arraySlice(requested, 0, i);</span>
+<span class="cstat-no" title="statement not covered" >                optimizedComplement = arraySlice(optimized, 0, i);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            requestedIntersection[++intersectionLength] = requested[i];</span>
+<span class="cstat-no" title="statement not covered" >            intersectionFound = true;</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!intersectionFound) {</span>
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return [requestedIntersection, optimizedComplement, requestedComplement ];</span>
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

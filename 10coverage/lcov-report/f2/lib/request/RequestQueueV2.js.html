@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/request/RequestQueueV2.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/request/</a> RequestQueueV2.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.38% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>38/64</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.38% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/64</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var RequestTypes = require("./RequestTypes");
+var sendSetRequest = require("./sendSetRequest");
+var GetRequest = require("./GetRequestV2");
+var falcorPathUtils = require("falcor-path-utils");
+&nbsp;
+/**
+ * The request queue is responsible for queuing the operations to
+ * the model"s dataSource.
+ *
+ * @param {Model} model -
+ * @param {Scheduler} scheduler -
+ */
+function RequestQueueV2(model, scheduler) {
+    this.model = model;
+    this.scheduler = scheduler;
+    this.requests = this._requests = [];
+}
+&nbsp;
+RequestQueueV2.prototype = {
+    /**
+     * Sets the scheduler, but will not affect any current requests.
+     */
+    setScheduler: <span class="fstat-no" title="function not covered" >function(scheduler) {</span>
+<span class="cstat-no" title="statement not covered" >        this.scheduler = scheduler;</span>
+    },
+&nbsp;
+    /**
+     * performs a set against the dataSource.  Sets, though are not batched
+     * currently could be batched potentially in the future.  Since no batching
+     * is required the setRequest action is simplified significantly.
+     *
+     * @param {JSONGraphEnvelope) jsonGraph -
+     */
+    set: <span class="fstat-no" title="function not covered" >function(jsonGraph, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        jsonGraph.paths = falcorPathUtils.collapse(jsonGraph.paths);</span>
+<span class="cstat-no" title="statement not covered" >        return sendSetRequest(jsonGraph, this.model, cb);</span>
+    },
+&nbsp;
+    /**
+     * Creates a get request to the dataSource.  Depending on the current
+     * scheduler is how the getRequest will be flushed.
+     * @param {Array} requestedPaths -
+     * @param {Array} optimizedPaths -
+     * @param {Function} cb -
+     */
+    get: function(requestedPaths, optimizedPaths, cb) {
+        var self = this;
+        var disposables = [];
+        var count = 0;
+        var requests = self._requests;
+        var i, len;
+        var oRemainingPaths = optimizedPaths;
+        var rRemainingPaths = requestedPaths;
+        var disposed = false;
+        var request;
+&nbsp;
+        for (i = 0, len = requests.length; i &lt; len; ++i) {
+<span class="cstat-no" title="statement not covered" >            request = requests[i];</span>
+<span class="cstat-no" title="statement not covered" >            if (request.type !== RequestTypes.GetRequest) {</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+            }
+&nbsp;
+            // The request has been sent, attempt to jump on the request
+            // if possible.
+<span class="cstat-no" title="statement not covered" >            if (request.sent) {</span>
+<span class="cstat-no" title="statement not covered" >                var results = request.add(</span>
+                    rRemainingPaths, oRemainingPaths, refCountCallback);
+&nbsp;
+                // Checks to see if the results were successfully inserted
+                // into the outgoing results.  Then our paths will be reduced
+                // to the complement.
+<span class="cstat-no" title="statement not covered" >                if (results[0]) {</span>
+<span class="cstat-no" title="statement not covered" >                    rRemainingPaths = results[1];</span>
+<span class="cstat-no" title="statement not covered" >                    oRemainingPaths = results[2];</span>
+<span class="cstat-no" title="statement not covered" >                    disposables[disposables.length] = results[3];</span>
+<span class="cstat-no" title="statement not covered" >                    ++count;</span>
+                }
+            }
+&nbsp;
+            // If there is a non sent request, then we can batch and leave.
+            else {
+<span class="cstat-no" title="statement not covered" >                request.batch(</span>
+                    rRemainingPaths, oRemainingPaths, refCountCallback);
+<span class="cstat-no" title="statement not covered" >                oRemainingPaths = [];</span>
+<span class="cstat-no" title="statement not covered" >                rRemainingPaths = [];</span>
+<span class="cstat-no" title="statement not covered" >                ++count;</span>
+            }
+&nbsp;
+            // If there are no more remaining paths then exit the loop.
+<span class="cstat-no" title="statement not covered" >            if (!oRemainingPaths.length) {</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+&nbsp;
+        // After going through all the available requests if there are more
+        // paths to process then a new request must be made.
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (oRemainingPaths.length) {
+            request = new GetRequest(self.scheduler, self);
+            requests[requests.length] = request;
+            ++count;
+            var disposable = request.batch(
+                rRemainingPaths, oRemainingPaths, refCountCallback);
+            disposables[disposables.length] = disposable;
+        }
+&nbsp;
+        // This is a simple refCount callback.
+        function refCountCallback(err) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (disposed) {
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            --count;
+&nbsp;
+            // If the count becomes 0, then its time to notify the
+            // listener that the request is done.
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (count === 0) {
+                cb(err);
+            }
+        }
+&nbsp;
+        // When disposing the request all of the outbound requests will be
+        // disposed of.
+        return <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            if (disposed || count === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            disposed = true;</span>
+<span class="cstat-no" title="statement not covered" >            var length = disposables.length;</span>
+<span class="cstat-no" title="statement not covered" >            for (var idx = 0; idx &lt; length; ++idx) {</span>
+<span class="cstat-no" title="statement not covered" >                disposables[idx]();</span>
+            }
+        };
+    },
+&nbsp;
+    /**
+     * Removes the request from the request
+     */
+    removeRequest: function(request) {
+        var requests = this._requests;
+        var i = requests.length;
+        while (--i &gt;= 0) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (requests[i].id === request.id) {
+                requests.splice(i, 1);
+                break;
+            }
+        }
+    }
+};
+&nbsp;
+module.exports = RequestQueueV2;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

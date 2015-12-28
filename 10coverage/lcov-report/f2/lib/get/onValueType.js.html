@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/get/onValueType.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/get/</a> onValueType.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>20/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.28% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var isExpired = require("./util/isExpired");
+var $error = require("./../types/error");
+var onError = require("./onError");
+var onValue = require("./onValue");
+var onMissing = require("./onMissing");
+var isMaterialized = require("./util/isMaterialzed");
+var __invalidated = require("./../internal/invalidated");
+var expireNode = require("./../support/expireNode");
+&nbsp;
+/**
+ * When we land on a valueType (or nothing) then we need to report it out to
+ * the outerResults through errors, missing, or values.
+ *
+ * @private
+ */
+module.exports = function onValueType(
+    model, node, path, depth, seed, outerResults, branchInfo,
+    requestedPath, optimizedPath, optimizedLength, isJSONG, fromReference) {
+&nbsp;
+    var currType = node &amp;&amp; node.$type;
+    var requiresMaterializedToReport = node &amp;&amp; node.value === undefined;
+&nbsp;
+    // There are is nothing here, ether report value, or report the value
+    // that is missing.  If there is no type then report the missing value.
+    if (!node || !currType) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isMaterialized(model)) {
+<span class="cstat-no" title="statement not covered" >            onValue(model, node, seed, depth, outerResults, branchInfo,</span>
+                    requestedPath, optimizedPath, optimizedLength,
+                    isJSONG);
+        } else {
+            onMissing(model, path, depth,
+                      outerResults, requestedPath,
+                      optimizedPath, optimizedLength);
+        }
+        return;
+    }
+&nbsp;
+    // If there are expired value, then report it as missing
+    else <span class="missing-if-branch" title="if path not taken" >I</span>if (isExpired(node)) {
+<span class="cstat-no" title="statement not covered" >        if (!node[__invalidated]) {</span>
+<span class="cstat-no" title="statement not covered" >            expireNode(node, model._root.expired, model._root);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        onMissing(model, path, depth,</span>
+                  outerResults, requestedPath,
+                  optimizedPath, optimizedLength);
+    }
+&nbsp;
+    // If there is an error, then report it as a value if
+    else <span class="missing-if-branch" title="if path not taken" >I</span>if (currType === $error) {
+<span class="cstat-no" title="statement not covered" >        if (fromReference) {</span>
+<span class="cstat-no" title="statement not covered" >            requestedPath[depth] = null;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (isJSONG || model._treatErrorsAsValues) {</span>
+<span class="cstat-no" title="statement not covered" >            onValue(model, node, seed, depth, outerResults, branchInfo,</span>
+                    requestedPath, optimizedPath, optimizedLength,
+                    isJSONG);
+        } else {
+<span class="cstat-no" title="statement not covered" >            onError(model, node, depth, requestedPath, outerResults);</span>
+        }
+    }
+&nbsp;
+    // Report the value
+    else {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (fromReference) {
+<span class="cstat-no" title="statement not covered" >            requestedPath[depth] = null;</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!requiresMaterializedToReport ||
+<span class="branch-1 cbranch-no" title="branch not covered" >            requiresMaterializedToReport </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >model._materialized)</span> {
+&nbsp;
+            onValue(model, node, seed, depth, outerResults, branchInfo,
+                    requestedPath, optimizedPath, optimizedLength, isJSONG);
+        }
+    }
+};
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

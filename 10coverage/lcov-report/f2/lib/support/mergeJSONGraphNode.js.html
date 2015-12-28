@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/support/mergeJSONGraphNode.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/support/</a> mergeJSONGraphNode.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.58% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>65/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.75% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>47/80</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.58% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>65/86</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var __parent = require("./../internal/parent");
+&nbsp;
+var $ref = require("./../types/ref");
+var $error = require("./../types/error");
+var getSize = require("./../support/getSize");
+var getTimestamp = require("./../support/getTimestamp");
+var isObject = require("./../support/isObject");
+var isExpired = require("./../support/isExpired");
+var isFunction = require("./../support/isFunction");
+&nbsp;
+var promote = require("./../lru/promote");
+var wrapNode = require("./../support/wrapNode");
+var insertNode = require("./../support/insertNode");
+var expireNode = require("./../support/expireNode");
+var replaceNode = require("./../support/replaceNode");
+var updateNodeAncestors = require("./../support/updateNodeAncestors");
+&nbsp;
+module.exports = function mergeJSONGraphNode(
+    parent, node, message, key, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+    var sizeOffset;
+&nbsp;
+    var cType, mType,
+        cIsObject, mIsObject,
+        cTimestamp, mTimestamp;
+&nbsp;
+    // If the cache and message are the same, we can probably return early:
+    // - If they're both nullsy,
+    //   - If null then the node needs to be wrapped in an atom and inserted.
+    //     This happens from whole branch merging when a leaf is just a null value
+    //     instead of being wrapped in an atom.
+    //   - If undefined then return null (previous behavior).
+    // - If they're both branches, return the branch.
+    // - If they're both edges, continue below.
+    if (node === message) {
+&nbsp;
+        // There should not be undefined values.  Those should always be
+        // wrapped in an $atom
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (message === null) {
+<span class="cstat-no" title="statement not covered" >            node = wrapNode(message, undefined, message);</span>
+<span class="cstat-no" title="statement not covered" >            parent = updateNodeAncestors(parent, -node.$size, lru, version);</span>
+<span class="cstat-no" title="statement not covered" >            node = insertNode(node, parent, key, undefined, optimizedPath);</span>
+<span class="cstat-no" title="statement not covered" >            promote(lru, node);</span>
+<span class="cstat-no" title="statement not covered" >            return node;</span>
+        }
+&nbsp;
+        // The messange and cache are both undefined, therefore return null.
+        else <span class="missing-if-branch" title="if path not taken" >I</span>if (message === undefined) {
+<span class="cstat-no" title="statement not covered" >            return message;</span>
+        }
+&nbsp;
+        else {
+            cIsObject = isObject(node);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (cIsObject) {
+                // Is the cache node a branch? If so, return the cache branch.
+                cType = node.$type;
+                if (cType == null) {
+                    // Has the branch been introduced to the cache yet? If not,
+                    // give it a parent, key, and absolute path.
+                    if (node[__parent] == null) {
+                        insertNode(node, parent, key, version, optimizedPath);
+                    }
+                    return node;
+                }
+            }
+        }
+    } else {
+        cIsObject = isObject(node);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (cIsObject) {
+<span class="cstat-no" title="statement not covered" >            cType = node.$type;</span>
+        }
+    }
+&nbsp;
+    // If the cache isn't a reference, we might be able to return early.
+    if (cType !== $ref) {
+        mIsObject = isObject(message);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (mIsObject) {
+            mType = message.$type;
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (cIsObject &amp;&amp; !cType) {
+            // If the cache is a branch and the message is empty or
+            // also a branch, continue with the cache branch.
+<span class="cstat-no" title="statement not covered" >            if (message == null || (mIsObject &amp;&amp; !mType)) {</span>
+<span class="cstat-no" title="statement not covered" >                return node;</span>
+            }
+        }
+    }
+    // If the cache is a reference, we might not need to replace it.
+    else {
+        // If the cache is a reference, but the message is empty, leave the cache alone...
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (message == null) {
+            // ...unless the cache is an expired reference. In that case, expire
+            // the cache node and return undefined.
+<span class="cstat-no" title="statement not covered" >            if (isExpired(node)) {</span>
+<span class="cstat-no" title="statement not covered" >                expireNode(node, expired, lru);</span>
+<span class="cstat-no" title="statement not covered" >                return void 0;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return node;</span>
+        }
+        mIsObject = isObject(message);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (mIsObject) {
+            mType = message.$type;
+            // If the cache and the message are both references,
+            // check if we need to replace the cache reference.
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (mType === $ref) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (node === message) {
+                    // If the cache and message are the same reference,
+                    // we performed a whole-branch merge of one of the
+                    // grandparents. If we've previously graphed this
+                    // reference, break early. Otherwise, continue to
+                    // leaf insertion below.
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (node[__parent] != null) {
+<span class="cstat-no" title="statement not covered" >                        return node;</span>
+                    }
+                } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    cTimestamp = node.$timestamp;</span>
+<span class="cstat-no" title="statement not covered" >                    mTimestamp = message.$timestamp;</span>
+&nbsp;
+                    // - If either the cache or message reference is expired,
+                    //   replace the cache reference with the message.
+                    // - If neither of the references are expired, compare their
+                    //   timestamps. If either of them don't have a timestamp,
+                    //   or the message's timestamp is newer, replace the cache
+                    //   reference with the message reference.
+                    // - If the message reference is older than the cache
+                    //   reference, short-circuit.
+<span class="cstat-no" title="statement not covered" >                    if (!isExpired(node) &amp;&amp; !isExpired(message) &amp;&amp; mTimestamp &lt; cTimestamp) {</span>
+<span class="cstat-no" title="statement not covered" >                        return void 0;</span>
+                    }
+                }
+            }
+        }
+    }
+&nbsp;
+    // If the cache is a leaf but the message is a branch, merge the branch over the leaf.
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (cType &amp;&amp; mIsObject &amp;&amp; !mType) {
+<span class="cstat-no" title="statement not covered" >        return insertNode(replaceNode(node, message, parent, key, lru), parent, key, undefined, optimizedPath);</span>
+    }
+    // If the message is a sentinel or primitive, insert it into the cache.
+    else if (mType || !mIsObject) {
+        // If the cache and the message are the same value, we branch-merged one
+        // of the message's ancestors. If this is the first time we've seen this
+        // leaf, give the message a $size and $type, attach its graph pointers,
+        // and update the cache sizes and versions.
+        if (mType &amp;&amp; node === message) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (node[__parent] == null) {
+                node = wrapNode(node, cType, node.value);
+                parent = updateNodeAncestors(parent, -node.$size, lru, version);
+                node = insertNode(node, parent, key, version, optimizedPath);
+            }
+        }
+        // If the cache and message are different, or the message is a
+        // primitive, replace the cache with the message value. If the message
+        // is a sentinel, clone and maintain its type. If the message is a
+        // primitive value, wrap it in an atom.
+        else {
+            var isDistinct = true;
+            // If the cache is a branch, but the message is a leaf, replace the
+            // cache branch with the message leaf.
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (cType || !cIsObject) {
+                // Compare the current cache value with the new value. If either of
+                // them don't have a timestamp, or the message's timestamp is newer,
+                // replace the cache value with the message value. If a comparator
+                // is specified, the comparator takes precedence over timestamps.
+                //
+                // Comparing either Number or undefined to undefined always results in false.
+                isDistinct = (getTimestamp(message) &lt; getTimestamp(node)) === false;
+                // If at least one of the cache/message are sentinels, compare them.
+                <span class="missing-if-branch" title="else path not taken" >E</span>if ((cType || mType) &amp;&amp; isFunction(comparator)) {
+                    isDistinct = !comparator(node, message, optimizedPath.slice(0, optimizedPath.index));
+                }
+            }
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (isDistinct) {
+                message = wrapNode(message, mType, mType ? message.value : <span class="branch-1 cbranch-no" title="branch not covered" >message)</span>;
+&nbsp;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (mType === $error &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >isFunction(errorSelector))</span> {
+<span class="cstat-no" title="statement not covered" >                    message = errorSelector(requestedPath.slice(0, requestedPath.index), message);</span>
+                }
+&nbsp;
+                sizeOffset = getSize(node) - getSize(message);
+                node = replaceNode(node, message, parent, key, lru);
+                parent = updateNodeAncestors(parent, sizeOffset, lru, version);
+                node = insertNode(node, parent, key, version, optimizedPath);
+            }
+        }
+&nbsp;
+        // Promote the message edge in the LRU.
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isExpired(node)) {
+<span class="cstat-no" title="statement not covered" >            expireNode(node, expired, lru);</span>
+        } else {
+            promote(lru, node);
+        }
+    }
+    else <span class="missing-if-branch" title="else path not taken" >E</span>if (node == null) {
+        node = insertNode(message, parent, key, undefined, optimizedPath);
+    }
+&nbsp;
+    return node;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

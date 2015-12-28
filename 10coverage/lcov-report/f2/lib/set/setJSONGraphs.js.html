@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/set/setJSONGraphs.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/set/</a> setJSONGraphs.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.4% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>113/125</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>18/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.4% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>113/125</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var __key = require("./../internal/key");
+var __ref = require("./../internal/ref");
+var __context = require("./../internal/context");
+var __version = require("./../internal/version");
+var __refIndex = require("./../internal/ref-index");
+var __refsLength = require("./../internal/refs-length");
+&nbsp;
+var $ref = require("./../types/ref");
+&nbsp;
+var promote = require("./../lru/promote");
+var isExpired = require("./../support/isAlreadyExpired");
+var isFunction = require("./../support/isFunction");
+var isPrimitive = require("./../support/isPrimitive");
+var expireNode = require("./../support/expireNode");
+var iterateKeySet = require("falcor-path-utils").iterateKeySet;
+var incrementVersion = require("./../support/incrementVersion");
+var mergeJSONGraphNode = require("./../support/mergeJSONGraphNode");
+var NullInPathError = require("./../errors/NullInPathError");
+&nbsp;
+/**
+ * Merges a list of {@link JSONGraphEnvelope}s into a {@link JSONGraph}.
+ * @function
+ * @param {Object} model - the Model for which to merge the {@link JSONGraphEnvelope}s.
+ * @param {Array.&lt;PathValue&gt;} jsonGraphEnvelopes - the {@link JSONGraphEnvelope}s to merge.
+ * @return {Array.&lt;Array.&lt;Path&gt;&gt;} - an Array of Arrays where each inner Array is a list of requested and optimized paths (respectively) for the successfully set values.
+ */
+&nbsp;
+module.exports = function setJSONGraphs(model, jsonGraphEnvelopes, x, errorSelector, comparator) {
+&nbsp;
+    var modelRoot = model._root;
+    var lru = modelRoot;
+    var expired = modelRoot.expired;
+    var version = incrementVersion();
+    var cache = modelRoot.cache;
+    var initialVersion = cache[__version];
+&nbsp;
+    var requestedPath = [];
+    var optimizedPath = [];
+    var requestedPaths = [];
+    var optimizedPaths = [];
+    var jsonGraphEnvelopeIndex = -1;
+    var jsonGraphEnvelopeCount = jsonGraphEnvelopes.length;
+&nbsp;
+    while (++jsonGraphEnvelopeIndex &lt; jsonGraphEnvelopeCount) {
+&nbsp;
+        var jsonGraphEnvelope = jsonGraphEnvelopes[jsonGraphEnvelopeIndex];
+        var paths = jsonGraphEnvelope.paths;
+        var jsonGraph = jsonGraphEnvelope.jsonGraph;
+&nbsp;
+        var pathIndex = -1;
+        var pathCount = paths.length;
+&nbsp;
+        while (++pathIndex &lt; pathCount) {
+&nbsp;
+            var path = paths[pathIndex];
+            optimizedPath.index = 0;
+&nbsp;
+            setJSONGraphPathSet(
+                path, 0,
+                cache, cache, cache,
+                jsonGraph, jsonGraph, jsonGraph,
+                requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+                version, expired, lru, comparator, errorSelector
+            );
+        }
+    }
+&nbsp;
+    var newVersion = cache[__version];
+    var rootChangeHandler = modelRoot.onChange;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isFunction(rootChangeHandler) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >initialVersion !== newVersion)</span> {
+<span class="cstat-no" title="statement not covered" >        rootChangeHandler();</span>
+    }
+&nbsp;
+    return [requestedPaths, optimizedPaths];
+};
+&nbsp;
+/* eslint-disable no-constant-condition */
+function setJSONGraphPathSet(
+    path, depth, root, parent, node,
+    messageRoot, messageParent, message,
+    requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+    var note = {};
+    var branch = depth &lt; path.length - 1;
+    var keySet = path[depth];
+    var key = iterateKeySet(keySet, note);
+    var optimizedIndex = optimizedPath.index;
+&nbsp;
+    do {
+        var results = setNode(
+            root, parent, node, messageRoot, messageParent, message,
+            key, branch, false, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+        requestedPath[depth] = key;
+        requestedPath.index = depth;
+        optimizedPath[optimizedPath.index++] = key;
+        var nextNode = results[0];
+        var nextParent = results[1];
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (nextNode) {
+            if (branch) {
+                setJSONGraphPathSet(
+                    path, depth + 1, root, nextParent, nextNode,
+                    messageRoot, results[3], results[2],
+                    requestedPaths, optimizedPaths, requestedPath, optimizedPath,
+                    version, expired, lru, comparator, errorSelector
+                );
+            } else {
+                promote(lru, nextNode);
+                requestedPaths.push(requestedPath.slice(0, requestedPath.index + 1));
+                optimizedPaths.push(optimizedPath.slice(0, optimizedPath.index));
+            }
+        }
+        key = iterateKeySet(keySet, note);
+        if (note.done) {
+            break;
+        }
+        optimizedPath.index = optimizedIndex;
+    } while (true);
+}
+/* eslint-enable */
+&nbsp;
+function setReference(
+    root, node, messageRoot, message, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+    var reference = node.value;
+    optimizedPath.splice(0, optimizedPath.length);
+    optimizedPath.push.apply(optimizedPath, reference);
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isExpired(node)) {
+<span class="cstat-no" title="statement not covered" >        optimizedPath.index = reference.length;</span>
+<span class="cstat-no" title="statement not covered" >        expireNode(node, expired, lru);</span>
+<span class="cstat-no" title="statement not covered" >        return [undefined, root, message, messageRoot];</span>
+    }
+&nbsp;
+    promote(lru, node);
+&nbsp;
+    var index = 0;
+    var container = node;
+    var count = reference.length - 1;
+    var parent = node = root;
+    var messageParent = message = messageRoot;
+&nbsp;
+    do {
+        var key = reference[index];
+        var branch = index &lt; count;
+        optimizedPath.index = index;
+&nbsp;
+        var results = setNode(
+            root, parent, node, messageRoot, messageParent, message,
+            key, branch, true, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+        node = results[0];
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isPrimitive(node)) {
+<span class="cstat-no" title="statement not covered" >            optimizedPath.index = index;</span>
+<span class="cstat-no" title="statement not covered" >            return results;</span>
+        }
+        parent = results[1];
+        message = results[2];
+        messageParent = results[3];
+    } while (index++ &lt; count);
+&nbsp;
+    optimizedPath.index = index;
+&nbsp;
+    if (container[__context] !== node) {
+        var backRefs = node[__refsLength] || 0;
+        node[__refsLength] = backRefs + 1;
+        node[__ref + backRefs] = container;
+        container[__context] = node;
+        container[__refIndex] = backRefs;
+    }
+&nbsp;
+    return [node, parent, message, messageParent];
+}
+&nbsp;
+function setNode(
+    root, parent, node, messageRoot, messageParent, message,
+    key, branch, reference, requestedPath, optimizedPath,
+    version, expired, lru, comparator, errorSelector) {
+&nbsp;
+    var type = node.$type;
+&nbsp;
+    while (type === $ref) {
+&nbsp;
+        var results = setReference(
+            root, node, messageRoot, message, requestedPath, optimizedPath,
+            version, expired, lru, comparator, errorSelector
+        );
+&nbsp;
+        node = results[0];
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isPrimitive(node)) {
+<span class="cstat-no" title="statement not covered" >            return results;</span>
+        }
+&nbsp;
+        parent = results[1];
+        message = results[2];
+        messageParent = results[3];
+        type = node.$type;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (type !== void 0) {
+<span class="cstat-no" title="statement not covered" >        return [node, parent, message, messageParent];</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (key == null) {
+<span class="cstat-no" title="statement not covered" >        if (branch) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new NullInPathError();</span>
+        } else <span class="cstat-no" title="statement not covered" >if (node) {</span>
+<span class="cstat-no" title="statement not covered" >            key = node[__key];</span>
+        }
+    } else {
+        parent = node;
+        messageParent = message;
+        node = parent[key];
+        message = messageParent &amp;&amp; messageParent[key];
+    }
+&nbsp;
+    node = mergeJSONGraphNode(
+        parent, node, message, key, requestedPath, optimizedPath,
+        version, expired, lru, comparator, errorSelector
+    );
+&nbsp;
+    return [node, parent, message, messageParent];
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

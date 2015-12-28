@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/support/validateInput.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/support/</a> validateInput.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.81% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var isArray = Array.isArray;
+var isPathValue = require("./../support/isPathValue");
+var isJSONGraphEnvelope = require("./../support/isJSONGraphEnvelope");
+var isJSONEnvelope = require("./../support/isJSONEnvelope");
+var pathSyntax = require("falcor-path-syntax");
+&nbsp;
+/**
+ *
+ * @param {Object} allowedInput - allowedInput is a map of input styles
+ * that are allowed
+ * @private
+ */
+module.exports = function validateInput(args, allowedInput, method) {
+    for (var i = 0, len = args.length; i &lt; len; ++i) {
+        var arg = args[i];
+        var valid = false;
+&nbsp;
+        // Path
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (isArray(arg) &amp;&amp; allowedInput.path) {
+            valid = true;
+        }
+&nbsp;
+        // Path Syntax
+        else <span class="cstat-no" title="statement not covered" >if (typeof arg === "string" &amp;&amp; allowedInput.pathSyntax) {</span>
+<span class="cstat-no" title="statement not covered" >            valid = true;</span>
+        }
+&nbsp;
+        // Path Value
+        else <span class="cstat-no" title="statement not covered" >if (isPathValue(arg) &amp;&amp; allowedInput.pathValue) {</span>
+<span class="cstat-no" title="statement not covered" >            arg.path = pathSyntax.fromPath(arg.path);</span>
+<span class="cstat-no" title="statement not covered" >            valid = true;</span>
+        }
+&nbsp;
+        // jsonGraph {jsonGraph: { ... }, paths: [ ... ]}
+        else <span class="cstat-no" title="statement not covered" >if (isJSONGraphEnvelope(arg) &amp;&amp; allowedInput.jsonGraph) {</span>
+<span class="cstat-no" title="statement not covered" >            valid = true;</span>
+        }
+&nbsp;
+        // json env {json: {...}}
+        else <span class="cstat-no" title="statement not covered" >if (isJSONEnvelope(arg) &amp;&amp; allowedInput.json) {</span>
+<span class="cstat-no" title="statement not covered" >            valid = true;</span>
+        }
+&nbsp;
+        // selector functions
+        else <span class="cstat-no" title="statement not covered" >if (typeof arg === "function" &amp;&amp;</span>
+                 i + 1 === len &amp;&amp;
+                 allowedInput.selector) {
+<span class="cstat-no" title="statement not covered" >            valid = true;</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!valid) {
+<span class="cstat-no" title="statement not covered" >            return new Error("Unrecognized argument " + (typeof arg) + " [" + String(arg) + "] " + "to Model#" + method + "");</span>
+        }
+    }
+    return true;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

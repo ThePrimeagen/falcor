@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for f2/lib/set/sync.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">f2/lib/set/</a> sync.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var pathSyntax = require("falcor-path-syntax");
+var isPathValue = require("./../support/isPathValue");
+var setPathValues = require("./../set/setPathValues");
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function setValueSync(pathArg, valueArg, errorSelectorArg, comparatorArg) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var path = pathSyntax.fromPath(pathArg);</span>
+<span class="cstat-no" title="statement not covered" >    var value = valueArg;</span>
+<span class="cstat-no" title="statement not covered" >    var errorSelector = errorSelectorArg;</span>
+<span class="cstat-no" title="statement not covered" >    var comparator = comparatorArg;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isPathValue(path)) {</span>
+<span class="cstat-no" title="statement not covered" >        comparator = errorSelector;</span>
+<span class="cstat-no" title="statement not covered" >        errorSelector = value;</span>
+<span class="cstat-no" title="statement not covered" >        value = path;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >        value = {</span>
+            path: path,
+            value: value
+        };
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isPathValue(value) === false) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error("Model#setValueSync must be called with an Array path.");</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (typeof errorSelector !== "function") {</span>
+<span class="cstat-no" title="statement not covered" >        errorSelector = this._root._errorSelector;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (typeof comparator !== "function") {</span>
+<span class="cstat-no" title="statement not covered" >        comparator = this._root._comparator;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._syncCheck("setValueSync")) {</span>
+<span class="cstat-no" title="statement not covered" >        setPathValues(this, [value]);</span>
+<span class="cstat-no" title="statement not covered" >        return this._getValueSync(this, value.path).value;</span>
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Dec 26 2015 15:44:49 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
