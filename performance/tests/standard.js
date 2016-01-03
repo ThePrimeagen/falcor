@@ -1,9 +1,10 @@
 var testMerge = require('./testMerge');
-var get = require('./get/get.core.perf');
+var getCore = require('./get/get.core.perf');
+var getFull = require('./get/get.perf');
 var set = require('./set/set.json-graph.perf');
 var clone = require('./clone/clone.perf');
 
-var standardTest = [get, 5];
+var standardTest = [getFull, 5];
 
 module.exports = function(name) {
     // Creates the test suites
