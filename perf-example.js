@@ -1,4 +1,4 @@
 module.exports = function a() {
-    var previousTime = Date.now();
-    while (Date.now() - previousTime < 5) { }
+    var currentTime = Date.now();
+    while (Date.now() - currentTime < 5) { }
 };
