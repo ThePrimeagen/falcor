@@ -16,6 +16,7 @@ var tail = require('./lib/internal/tail');
 var next = require('./lib/internal/next');
 var prev = require('./lib/internal/prev');
 var noOp = function noOp() {};
+var count = 0;
 
 function callFalcor() {
     for (var i = 0; i < 1000; ++i) {
@@ -35,7 +36,9 @@ function callFalcor() {
 }
 
 function async() {
-    console.log('async');
+    if (count++ > 10) {
+        return;
+    }
     setTimeout(function() {
         callFalcor();
     }, 0);
