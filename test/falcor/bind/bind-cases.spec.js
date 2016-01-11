@@ -15,6 +15,68 @@ var sinon = require('sinon');
 var $ref = require("./../../../lib/types/ref");
 
 describe('Deref', function() {
+    it('should be able to forward on errors from a model.', function(done) {
+        var onGet = sinon.spy(function() {
+            return Rx.Observable.create(function(obs) {
+                obs.onError(new Error({
+                    message: 'Not Authorized',
+                    name: 'UserNotAuthorizedError'
+                }));
+            });
+        });
+        var model = new Model({
+            cache: { },
+            source: {
+                get: onGet
+            }
+        });
+        model.
+            deref(['lolomo', 'summary']).
+            doAction(noOp, function() {
+                debugger;
+            }, function() {
+                debugger
+            });
+    });
+    it('should be ok when requesting all {$type: atom}s for derefing.', function(done) {
+        var onGet = sinon.spy(function() {
+            return Rx.Observable.create(function(obs) {
+                obs.onNext({
+                    jsonGraph: {
+                        lolomos: {
+                            123: {
+                                summary: {$type: 'atom'}
+                            }
+                        }
+                    }
+                });
+                obs.onCompleted();
+            });
+        });
+        var model = new Model({
+            cache: {
+                lolomo: Model.ref(['lolomos', 123]),
+                lolomos: {
+                    123: {
+                        length: 5
+                    }
+                }
+            },
+            source: {
+                get: onGet
+            }
+        });
+        var onNext = sinon.spy();
+        model.
+            deref(['lolomo'], ['summary', 'length']).
+            doAction(onNext, noOp, function() {
+                expect(onNext.calledOnce).to.be.ok;
+                expect(onGet.calledOnce).to.be.ok;
+                expect(onNext.getCall(0).args[0]._path).to.deep.equals(['lolomos', 123]);
+            }).
+            subscribe(noOp, done, done);
+    });
+
     it('should not be able to deref to lolomo because of expired, then get the correct data from source, then bind.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
