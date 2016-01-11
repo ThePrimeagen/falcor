@@ -15,13 +15,10 @@ var sinon = require('sinon');
 var $ref = require("./../../../lib/types/ref");
 
 describe('Deref', function() {
-    it('should be able to forward on errors from a model.', function(done) {
+    it.only('should be able to forward on errors from a model.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
-                obs.onError(new Error({
-                    message: 'Not Authorized',
-                    name: 'UserNotAuthorizedError'
-                }));
+                obs.onError(new Error('Not Authorized'));
             });
         });
         var model = new Model({
@@ -31,12 +28,13 @@ describe('Deref', function() {
             }
         });
         model.
-            deref(['lolomo', 'summary']).
+            deref(['lolomo'], ['summary']).
             doAction(noOp, function() {
                 debugger;
             }, function() {
                 debugger
-            });
+            }).
+            subscribe(noOp, done, done);
     });
     it('should be ok when requesting all {$type: atom}s for derefing.', function(done) {
         var onGet = sinon.spy(function() {
