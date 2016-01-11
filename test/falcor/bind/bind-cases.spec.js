@@ -13,9 +13,12 @@ var ref = Model.ref;
 var atom = Model.atom;
 var sinon = require('sinon');
 var $ref = require("./../../../lib/types/ref");
+var errorOnCompleted = require('./../../errorOnCompleted');
+var errorOnNext = require('./../../errorOnNext');
+var doneOnError = require('./../../doneOnError');
 
 describe('Deref', function() {
-    it.only('should be able to forward on errors from a model.', function(done) {
+    it('should be able to forward on errors from a model.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
                 obs.onError(new Error('Not Authorized'));
@@ -29,12 +32,18 @@ describe('Deref', function() {
         });
         model.
             deref(['lolomo'], ['summary']).
-            doAction(noOp, function() {
-                debugger;
-            }, function() {
-                debugger
+            doAction(noOp, function(e) {
+                expect(e).to.deep.equals([{
+                    path: ['lolomo', 'summary'],
+                    value: {
+                        message: 'Not Authorized'
+                    }
+                }]);
             }).
-            subscribe(noOp, done, done);
+            subscribe(
+                errorOnNext(done),
+                doneOnError(done),
+                errorOnCompleted(done));
     });
     it('should be ok when requesting all {$type: atom}s for derefing.', function(done) {
         var onGet = sinon.spy(function() {
