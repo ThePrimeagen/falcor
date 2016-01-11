@@ -9,6 +9,7 @@ var Bound = Expected.Bound;
 var noOp = function() {};
 var chai = require("chai");
 var expect = chai.expect;
+var assert = chai.assert;
 var ref = Model.ref;
 var atom = Model.atom;
 var sinon = require('sinon');
@@ -18,7 +19,7 @@ var errorOnNext = require('./../../errorOnNext');
 var doneOnError = require('./../../doneOnError');
 
 describe('Deref', function() {
-    it('should be able to forward on errors from a model.', function(done) {
+    it.only('should be able to forward on errors from a model.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
                 obs.onError(new Error('Not Authorized'));
