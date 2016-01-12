@@ -19,7 +19,7 @@ var errorOnNext = require('./../../errorOnNext');
 var doneOnError = require('./../../doneOnError');
 
 describe('Deref', function() {
-    it.only('should be able to forward on errors from a model.', function(done) {
+    it('should be able to forward on errors from a model.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
                 obs.onError(new Error('Not Authorized'));
@@ -46,6 +46,38 @@ describe('Deref', function() {
                 doneOnError(done),
                 errorOnCompleted(done));
     });
+
+    it('should be ok when all data is {$type: atom}, no cache, derefing.', function(done) {
+        var onGet = sinon.spy(function() {
+            return Rx.Observable.create(function(obs) {
+                obs.onNext({
+                    jsonGraph: {
+                        lolomo: {
+                            summary: {$type: 'atom'},
+                            length: {$type: 'atom'}
+                        }
+                    }
+                });
+                obs.onCompleted();
+            });
+        });
+        var model = new Model({
+            cache: { },
+            source: {
+                get: onGet
+            }
+        });
+        var onNext = sinon.spy();
+        model.
+            deref(['lolomo'], [['summary', 'length']]).
+            doAction(onNext, noOp, function() {
+                expect(onNext.calledOnce).to.be.ok;
+                expect(onGet.calledOnce).to.be.ok;
+                expect(onNext.getCall(0).args[0]._path).to.deep.equals(['lolomo']);
+            }).
+            subscribe(noOp, done, done);
+    });
+
     it('should be ok when requesting all {$type: atom}s for derefing.', function(done) {
         var onGet = sinon.spy(function() {
             return Rx.Observable.create(function(obs) {
@@ -120,6 +152,7 @@ describe('Deref', function() {
             }).
             subscribe(noOp, done, done);
     });
+
     it('should ensure that deref correctly makes a request to the dataStore.', function(done) {
         var onGet = sinon.spy();
         var onNext = sinon.spy();
